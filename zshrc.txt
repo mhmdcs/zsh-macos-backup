@@ -1,11 +1,33 @@
-
-
+# PATHS
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mohammedalmekhlafi/.oh-my-zsh"
 
+# Android Debug Bridge adb command path
+export PATH=$PATH:/Users/mohammedalmekhlafi/Library/Android/sdk/platform-tools
+
+# Sublime command subl
+#export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin
+
+# mysql command path
+export PATH=${PATH}:/usr/local/mysql-8.0.25-macos11-x86_64/bin
+
+# -------------
+
+# OTHER EXPORTS
+#prevents homebrew from running updates on every install, but don't forget to update manually!
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# -------------
+
+# PROMPTS
+
+# -------------
+
+# THEMES
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -16,10 +38,22 @@ ZSH_THEME="robbyrussell"
 #ZSH_THEME="half-life"
 #ZSH_THEME="clean"
 
+# -------------
+
+# PLUGINS
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Add wisely, as too many plugins slow down shell startup.
+# Example format: plugins=(rails git brew textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# -------------
 
 
-
-
+# MISC
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,15 +108,6 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -109,11 +134,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#pyenv command from the official pyenv github page
+#pyenv command from the official pyenv github page.
+#pyenv: python environment. It's a python version management tool.
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-#Use this to show user@host in themes that don't show it, and comment it out in the themes that do
-PROMPT="$fg[blue]%}mohammedalmekhlafi ${PROMPT}"
 
+# To show user@host in themes that don't show it, and comment it out in the themes that do. This line must be at end of file to work.
+PROMPT="%{$fg[blue]%}mhmdcs ${PROMPT}"
